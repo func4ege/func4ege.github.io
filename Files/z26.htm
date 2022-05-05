@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor=white text=black> <font size=4>
+<h2> Задача 26 </h2>
+
+<h3> № 1. </h3>
+<p> &nbsp Системный администратор раз в неделю создаёт архив пользовательских файлов. Однако объём диска, куда он помещает архив, может быть меньше, чем суммарный объём архивируемых файлов. Известно, какой объём занимает файл каждого пользователя.
+<br> &nbsp По заданной информации об объёме файлов пользователей и свободном объёме на архивном диске определите максимальное число пользователей, чьи файлы можно сохранить в архиве, а также максимальный размер имеющегося файла, который может быть сохранён в архиве, при условии, что сохранены файлы максимально возможного числа пользователей.
+<p><a href='26-1.txt' target=_blank>Задание 26-1</a>
+
+<h3> Решение </h3>
+<p> Напишем программу для получения ответа.
+
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>###</font>
+    <br> var a:=ReadAllText(<font color=blue>'26-1.txt'</font>).ToIs;
+    <br> var s:=a[0]; a:=a[2:].Ord.ToA; 
+    <br> var b:=a.PartialSum.ToA;
+    <br> var k:=b.Cnt(x-> x<=s).Pr;
+    <br> var i:=k-1; s-=b[i]-a[i];
+    <br>a.Wh(x-> x<=s).Max.Pr
+  </code>
+  </th>
+  <th width=50% nowrap> <code>
+  f=<font color=#66f>open</font>(<font color=#f6f>'26-1.txt'</font>); k=0
+  <br> s=<font color=#66f>int</font>(f.readline().split()[0])
+  <br> a=<font color=#66f>sorted</font>(<font color=#66f>int</font>(s) <font color=blue>for</font> s <font color=blue>in</font> f)
+  <br> <font color=blue>while</font> s-a[k]>=0: s-=a[k]; k+=1
+  <br> i=k-1; s+=a[i]
+  <br> m=<font color=#66f>max</font>([x <font color=blue>for</font> x <font color=blue>in</font> a <font color=blue>if</font> x<=s])
+  <br> <font color=#66f>print</font>(k,m)
+  </code>
+  </th>
+</tr> </table>
+<p><big>Ответ: </big> <b><i>397 17</b></i>.
+
+
+<h3> № 2. </h3>
+<p> &nbsp Предприятие производит оптовую закупку некоторых изделий A и B, на которую выделена определённая сумма денег. У поставщика есть в наличии партии этих изделий различных модификаций по различной цене. На выделенные деньги необходимо приобрести как можно больше изделий A независимо от модификации. Если у поставщика закончатся изделия A, то на оставшиеся деньги необходимо приобрести как можно больше изделий B. Известны выделенная для закупки сумма, а также количество и цена различных модификаций данных изделий у поставщика. Необходимо определить, сколько будет закуплено изделий B и какая сумма останется неиспользованной.
+<p> <a href='26-2.txt' target=_blank>Задание 26-2</a>
+
+
+<h3> Решение </h3>
+<p> Напишем программу для получения ответа.
+
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>###</font> var (kb,s):=(0,0);
+    <br> var c:=ReadLines(<font color=blue>'26-2.txt'</font>).ToA;
+    <br> var m:=c[0].Split[1].ToI;
+    <br> var a:=c[1:].Sel(s-> (s.Trim[^1],s.Split[0].ToI,s.Split[1].ToI)).Ord;
+    <br> a.ForEach(\(t,x,y)->  
+    <br> &nbsp while (y>0) and (s+x<=m) do
+    <br> &nbsp &nbsp (s,y,kb):=(s+x,y-1,kb+int(t=<font color=blue>'B'</font>)));
+    <br> pr(kb,m-s);
+ </code>
+  </th>
+  <th width=50% nowrap> <code> 
+    a=[];kb=s=0;f=<font color=#66f>open</font>(<font color=#f6f>'26-2.txt'</font>)
+    <br> m=<font color=#66f>int</font>(f.readline().split()[1])
+    <br> <font color=blue>for</font> st <font color=blue>in</font> f: a=<font color=#66f>sorted</font>(a+[(st.strip()[-1],*<font color=#66f>list</font>(<font color=#66f>map</font>(<font color=#66f>int</font>,st.split()[:2])))])
+    <br> <font color=blue>for</font> t,x,y <font color=blue>in</font> a:
+    <br> &nbsp <font color=blue>while</font> y <font color=blue>and</font> s+x<=m: s+=x;y-=1;kb+=t==<font color=#f6f>'B'</font>
+    <br> <font color=#66f>print</font>(kb,m-s)
+
+  
+  </code>
+  </th>
+</tr> </table>
+<p><big>Ответ: </big> <b><i>5895 227</b></i>.
+</font></body> </html>

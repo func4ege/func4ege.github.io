@@ -1,0 +1,495 @@
+
+<!DOCTYPE html>
+<html>
+<body bgcolor=white text=black> <font size=4>
+<h2> Функции языков программирования </h2>
+
+<font size=5><b><i> Функции для чисел: </font></b></i>
+
+
+<h3> Функция ToBase(для PascalABC) </h3>
+<p> &middot Функция переводит число <font color=red><i>a</i></font> в систему счисления с основанием 1<<font color=red><i>base</i></font><37.
+<table width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th colspan=2 width=100%> PascalABC</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font> uses School;
+    <br><b>var</b> a:=152; 
+    <br><b>var</b> b:=ToBase(a,14);
+    <br>print(b) &nbsp &nbsp &nbsp &nbsp<font color=green>//AC</font> </code>
+  </th>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font> uses School;
+    <br><b>var</b> a:=394; 
+    <br><b>var</b> b:=ToBase(a,3);
+    <br>print(b) &nbsp &nbsp &nbsp &nbsp<font color=green>//112121</font> </code>
+  </th>
+</tr> </table>
+
+<br> <h3> Функция Dec/Int </h3>
+<p> &middot Функция переводит число <font color=red><i>a</i></font> из системы счисления с основанием 1<<font color=red><i>base</i></font><37 в десятичную.
+<table width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font> uses School;
+    <br><b>var</b> a:=<font color=blue>'AC'</font>;
+    <br><b>var</b> b:=Dec(a,15);
+    <br>print(b) &nbsp &nbsp &nbsp &nbsp<font color=green>//162</font> </code>
+  </th>
+  <th width=50% nowrap> <code>
+    a=<font color=#f6f>'186'</font>
+    <br>b=<font color=#66f>int</font>(a,9)
+    <br><font color=#66f>print</font>(b) &nbsp &nbsp &nbsp &nbsp<font color=green>#159</font> </code>
+  </th>
+</tr> </table>
+
+
+<br> <h3> Функция IsPrime(для PascalABC) </h3>
+<p> &middot Функция возвращает значение <font color=blue><b>True</b></font>, если число <font color=red><i>a</i></font> простое, в противном случае - <font color=blue><b>False</b></font>.
+<table width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font> uses School;
+    <br><b>var</b> a:=11;
+    <br>a.IsPrime.Print &nbsp &nbsp &nbsp &nbsp<font color=green>//True</font> </code>
+  </th>
+  <th width=50% nowrap> <code>
+    p=<font color=blue>lambda</font> n: <font color=#66f>all</font>(n%d <font color=blue>for</font> d <font color=blue>in</font> <font color=#66f>range</font>(2,<font color=#66f>int</font>(n**0.5)+1))
+    <br> a=12
+    <br><font color=#66f>print</font>(p(a)) &nbsp &nbsp &nbsp &nbsp<font color=green>#False</font> </code>
+  </th>
+</tr> </table>
+
+
+
+<br> <h3> Функция Divisors(для PascalABC) </h3>
+<p> &middot Функция возвращает список делителей натурального числа <font color=red><i>a</i></font>.
+<table width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font> uses School;
+    <br><b>var</b> a:=12;
+    <br>a.Divisors.Print &nbsp &nbsp &nbsp &nbsp<font color=green>//1 2 3 4 6 12</font> </code>
+  </th>
+  <th width=50% nowrap> <code>
+    ds=<font color=blue>lambda</font> n: 
+    <br> &nbsp <font color=#66f>sorted</font>(c <font color=blue>for</font> w <font color=blue>in</font> [{d,n//d} <font color=blue>for</font> d <font color=blue>in</font> <font color=#66f>range</font>(1,<font color=#66f>int</font>(n**0.5)+1) <font color=blue>if</font> n%d==0] <font color=blue>for</font> c <font color=blue>in</font> w)
+    <br> a=6
+    <br><font color=#66f>print</font>(ds(a)) &nbsp &nbsp &nbsp &nbsp<font color=green>#[1, 2, 3, 6]</font> </code>
+  </th>
+</tr> </table>
+
+
+
+<h3> Функция Factorize(для PascalABC) </h3>
+<p> &middot Функция раскладывает число <font color=red><i>a</i></font> на простые множители.
+<table width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th colspan=2 width=100%> PascalABC</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font> uses School;
+    <br><b>var</b> a:=152; 
+    <br>a.Factorize.Print &nbsp &nbsp &nbsp &nbsp<font color=green>//2 2 2 19</font> </code>
+  </th>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font> uses School;
+    <br><b>var</b> a:=5640; 
+    <br>a.Factorize.Print &nbsp &nbsp &nbsp &nbsp<font color=green>//2 2 2 3 5 47</font> </code>
+  </th>
+</tr> </table>
+
+
+<br> <h3> Функция Digits(для PascalABC) </h3>
+<p> &middot Функция возвращает список, содержащий все цифры числа <font color=red><i>a</i></font>.
+<table width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font> uses School;
+    <br><b>var</b> a:=56642;
+    <br>a.Digits.Print &nbsp &nbsp &nbsp &nbsp<font color=green>//5 6 6 4 2</font> </code>
+  </th>
+  <th width=50% nowrap> <code>
+    dts=<font color=blue>lambda</font> n: [<font color=#66f>int</font>(c) <font color=blue>for</font> c <font color=blue>in</font> <font color=#66f>str</font>(n)]
+    <br> a=65536
+    <br><font color=#66f>print</font>(ds(a)) &nbsp &nbsp &nbsp &nbsp<font color=green>#[6, 5, 5, 3, 6]</font> </code>
+  </th>
+</tr> </table>
+
+
+<p><font size=5><b><i> Функции для последовательностей: </font></b></i>
+
+
+<h3> Функция All </h3>
+<p> &middot Функция возвращает значение <font color=blue><B>True</B></font>, если для всех <font color=red><I>x</I></font> выполняется описанное условие <font color=red><i>cond</i></font>, в противном случае возвращает <font color=blue><B>False</B></font>.
+<table width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font>
+    <br><b>var</b> a:=|1,2,3|; 
+    <br><b>var</b> f:=a.All(x-> x>0);
+    <br>print(f) &nbsp &nbsp &nbsp &nbsp<font color=green>//True</font> </code>
+  </th>
+  <th width=50% nowrap> <code>
+    a=[1,2,3]
+    <br>f=<font color=#66f>all</font>(x>0 <font color=blue><b>for</b></font> x in a)
+    <br><font color=#66f>print</font>(f) &nbsp &nbsp &nbsp &nbsp<font color=green>#True</font> </code>
+  </th>
+</tr> </table>
+
+
+<br><h3> Функция Any </h3>
+<p> &middot Функция возвращает значение <font color=blue><B>True</B></font>, если для хотя бы одного <font color=red><I>x</I></font> выполняется описанное условие <font color=red><i>cond</i></font>, в противном случае возвращает <font color=blue><B>False</B></font>.
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font>
+    <br><b>var</b> a:=|1,2,3|; 
+    <br><b>var</b> f:=a.Any(x-> x<=0);
+    <br>print(f) &nbsp &nbsp &nbsp &nbsp<font color=green>//False</font> </code>
+  </th>
+  <th width=50% nowrap> <code>
+    a=[1,2,3]
+    <br>f=<font color=#66f>any</font>(x<0 <font color=blue><b>for</b></font> x in a)
+    <br><font color=#66f>print</font>(f) &nbsp &nbsp &nbsp &nbsp<font color=green>#False</font> </code>
+  </th>
+</tr> </table>
+
+
+
+<br><h3> Функция Count </h3>
+<p> &middot Функция возвращает значение количества элементов последовательности <font color=red><i>a</i></font>, равных заданному значению.
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font>
+    <br><b>var</b> a:=|1,2,3,1,3|; 
+    <br><b>var</b> b:=a.Count(1);
+    <br>print(b) &nbsp &nbsp &nbsp &nbsp<font color=green>//2</font> </code>
+  </th>
+  <th width=50% nowrap> <code>
+    a=[1,2,3,1,3]
+    <br>b=a.count(2)
+    <br><font color=#66f>print</font>(b) &nbsp &nbsp &nbsp &nbsp<font color=green>#1</font> </code>
+  </th>
+</tr> </table>
+
+
+<br><h3> Функция Distinct/Set </h3>
+<p> &middot Функция возвращает элементы последовательности <font color=red><i>a</i></font> без повторяющихся.
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font>
+    <br><b>var</b> a:=|1,2,3,1,3|; 
+    <br><b>var</b> b:=a.Distinct;
+    <br>print(b) &nbsp &nbsp &nbsp &nbsp<font color=green>//[1,2,3]</font> </code>
+  </th>
+  <th width=50% nowrap> <code>
+    a=[1,2,3,1,3]
+    <br>b=<font color=#66f>set</font>(a)
+    <br><font color=#66f>print</font>(b) &nbsp &nbsp &nbsp &nbsp<font color=green>#{1, 2, 3}</font> </code>
+  </th>
+</tr> </table>
+
+
+<br><h3> Функция Order/Sorted </h3>
+<p> &middot Функция возвращает массив, отcортированный по возрастанию.
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font>
+    <br><b>var</b> a:=|1,2,3,1,3|; 
+    <br><b>var</b> b:=a.Order;
+    <br>print(b) &nbsp &nbsp &nbsp &nbsp<font color=green>//[1,1,2,3,3]</font> </code>
+  </th>
+  <th width=50% nowrap> <code>
+    a=[1,2,3,1,3]
+    <br>b=<font color=#66f>sorted</font>(a)
+    <br><font color=#66f>print</font>(b) &nbsp &nbsp &nbsp &nbsp<font color=green>#[1, 1, 2, 3, 3]</font> </code>
+  </th>
+</tr> </table>
+
+
+<br><h3> Функция PartialSum(для PascalABC) </h3>
+<p> &middot Функция возвращает массив частичных сумм последовательности <font color=red><i>a</i></font>.
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font>
+    <br><b>var</b> a:=|1,2,3,1,3|; 
+    <br><b>var</b> b:=a.PartialSum;
+    <br>print(b) &nbsp &nbsp &nbsp &nbsp<font color=green>//[1,3,6,7,10] </font> </code>
+  </th>
+  <th width=50% nowrap> <code>
+    a=[1,2,3,1,3];b=[];s=0
+    <br><font color=blue>for</font> x <font color=blue>in</font> a: s+=x; b+=[s]
+    <br><font color=#66f>print</font>(b) &nbsp &nbsp &nbsp &nbsp<font color=green>#[1, 3, 6, 7, 10]</font> </code>
+  </th>
+</tr> </table>
+
+<br><h3> Функция Combinations </h3>
+<p> &middot Функция возвращает сочетания по <font color=red><I>m</I></font> элементов последовательности <font color=red><I>a</I></font>.
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font>
+    <br><b>var</b> a:=|1,3,4|; var m:=2;
+    <br><b>var</b> b:=a.Combinations(m);
+    <br>print(b) &nbsp &nbsp &nbsp &nbsp<font color=green>//[1,3] [1,4] [3,4]</font> </code>
+  </th>
+  <th width=50% nowrap> <code>
+    <font color=blue>from</font> itertools <font color=blue>import</font> *
+    <br>a=[1,3,4];m=2
+    <br>b=[x <font color=blue>for</font> x in combinations(a,m)]
+    <br><font color=#66f>print</font>(b) &nbsp &nbsp &nbsp &nbsp<font color=green>#[(1, 3), (1, 4), (3, 4)]</font> </code>
+  </th>
+</tr> </table>
+
+
+<br><h3> Функция Permutations </h3>
+<p> &middot Функция возвращает все частичные перестановки по <font color=red><I>m</I></font> элементов последовательности <font color=red><I>a</I></font>.
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font>
+    <br><b>var</b> a:=|1,3,4|; var m:=2;
+    <br><b>var</b> b:=a.Permutations(m);
+    <br>print(b) &nbsp &nbsp &nbsp &nbsp<font color=green>//[1,3] [3,1] [1,4] [4,1] [3,4] [4,3]</font> </code>
+  </th>
+  <th width=50% nowrap> <code>
+    <font color=blue>from</font> itertools <font color=blue>import</font> *
+    <br>a=[1,3,4];m=2
+    <br>b=[x <font color=blue>for</font> x in permutations(a,m)]
+    <br><font color=#66f>print</font>(b) &nbsp &nbsp &nbsp &nbsp<font color=green>#[(1, 3), (1, 4), (3, 1), (3, 4), (4, 1), (4, 3)]</font> </code>
+  </th>
+</tr> </table>
+
+
+<br><h3> Функция Cartesian/Product </h3>
+<p> &middot Функция возвращает <font color=red><I>m</I></font>-ю декартову степень множества элемнтов последовательности <font color=red><I>a</I></font>.
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font>
+    <br><b>var</b> a:=|1,2|; var m:=2;
+    <br><b>var</b> b:=a.Cartesian(m);
+    <br>print(b) &nbsp &nbsp &nbsp &nbsp<font color=green>//[1,1] [1,2] [2,1] [2,2]</font> </code>
+  </th>
+  <th width=50% nowrap> <code>
+    <font color=blue>from</font> itertools <font color=blue>import</font> *
+    <br>a=[1,2];m=2
+    <br>b=[x <font color=blue>for</font> x in product(a,repeat=m)]
+    <br><font color=#66f>print</font>(b) &nbsp &nbsp &nbsp &nbsp<font color=green>#[(1, 1), (1, 2), (2, 1), (2, 2)]</font> </code>
+  </th>
+</tr> </table>
+
+
+<br><h3> Функция Where(для PascalABC) </h3>
+<p> &middot Функция фильтрует последовательность <font color=red><I>a</I></font> по заданному условию.
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font> uses School;
+    <br><b>var</b> a:=|0,-1,3,6,-4,3|;
+    <br>var b:=a.Where(x-> x>0);
+    <br> print(b)  &nbsp &nbsp &nbsp &nbsp<font color=green>//[3,6,3] </font> </code>
+  </th>
+  <th width=50% nowrap> <code>
+    a=[0,-1,3,6,-4,3]
+    <br>b=[x <font color=blue>for</font> x <font color=blue>in</font> a <font color=blue>if</font> x%2==0]
+    <br><font color=#66f>print</font>(b) &nbsp &nbsp &nbsp &nbsp<font color=green>#[0, 6, -4]</font> 
+    </code>
+  </th>
+</tr> </table>
+
+
+<br><h3> Функция Select(для PascalABC) </h3>
+<p> &middot Функция преобразует все элементы последовательности <font color=red><I>a</I></font> по заданному условию.
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font>
+    <br><b>var</b> a:=|0,-1,3,6,-4,3|;
+    <br>var b:=a.Select(x-> x+5);
+    <br> print(b)  &nbsp &nbsp &nbsp &nbsp<font color=green>//[5,4,8,11,1,8] </font> </code>
+  </th>
+  <th width=50% nowrap> <code>
+    a=[0,-1,3,6,-4,3]
+    <br>b=[x*2 <font color=blue>for</font> x <font color=blue>in</font> a]
+    <br><font color=#66f>print</font>(b) &nbsp &nbsp &nbsp &nbsp<font color=green>#[0, -2, 6, 12, -8, 6]</font> 
+    </code>
+  </th>
+</tr> </table>
+
+
+<br><h3> Процедура ForEach(для PascalABC) </h3>
+<p> &middot Процедура применяет действие к каждому элементу последовательности <font color=red><I>a</I></font>.
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font>
+    <br><b>var</b> a:=|0,-1,3,6,-4,3|; var s:=0;
+    <br> a.ForEach(n-> if n>0 then s+=n);
+    <br> print(s)  &nbsp &nbsp &nbsp &nbsp<font color=green>//12 </font> </code>
+  </th>
+  <th width=50% nowrap> <code>
+    a=[0,-1,3,6,-4,3]; s=0
+    <br><font color=blue>for</font> n <font color=blue>in</font> a:
+    <br> &nbsp <font color=blue>if</font> n%2==0: s+=n
+    <br><font color=#66f>print</font>(s) &nbsp &nbsp &nbsp &nbsp<font color=green>#2</font> 
+    </code>
+  </th>
+</tr> </table>
+
+<br><h3> Функция TrueTable(для PascalABC) </h3>
+<p> &middot Функция возвращает таблицу истинности.
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font> uses School;
+    <br><b>var</b> a:=TrueTable((a,b)-> not a or b);
+    <br>TrueTablePrint(a)</code>
+  </th>
+  <th width=50% nowrap> <code>
+    <font color=blue>from</font> itertools <font color=blue>import</font> *
+    <br><font color=#66F>print</font>(<font color=#f6f>'a b F'</font>)
+    <br><font color=blue>for</font> a,b <font color=blue>in</font> product([0,1],repeat=2): 
+    <br>&nbsp &nbsp F = <font color=blue>not</font>(a) <font color=blue>or</font> b
+    <br>&nbsp &nbsp <font color=#66f>print</font>(a,b,<font color=#66f>int</font>(F)) </code>
+  </th>
+</tr> </table>
+
+<p><font size=5><b><i> Функции для работы с файлами: </font></b></i>
+
+
+<h3> Функция ReadAllText/Read </h3>
+<p> &middot Функция считывает содержимое файла <font color=red><I>input.txt</I></font> в виде строки.
+<table width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font>
+    <b>var</b> a:=ReadAllText(<font color=blue>'input.txt'</font>);
+  </code>
+  </th>
+  <th width=50% nowrap> <code>
+    a=open(<font color=#f6f>'input.txt'</font>).read()
+    </code>
+  </th>
+</tr> </table>
+
+
+
+<br><h3> Функция ReadLines </h3>
+<p> &middot Функция возвращает массив строк файла <font color=red><I>input.txt</I></font>.
+<table width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font>
+    <b>var</b> a:=ReadLines(<font color=blue>'input.txt'</font>);
+  </code>
+  </th>
+  <th width=50% nowrap> <code>
+    a=open(<font color=#f6f>'input.txt'</font>).readlines()
+    </code>
+  </th>
+</tr> </table>
+
+<p><font size=5><b><i> Модуль SF для PascalABC: </font></b></i>
+<p> Добавление третьей "решетки" подключает модуль SF, который сокращает названия функций для более краткого написания кода программы. Например:
+<br> &nbsp <code> Pr</code> вместо <code>Print</code>
+<br> &nbsp <code>Cnt</code> вместо <code>Count</code>
+<br> &nbsp <code>Ord</code> вместо <code>Order</code>
+<br> &nbsp <code>ToA</code> вместо <code>ToArray</code>
+<br> &nbsp <code>Dst</code> вместо <code>Distinct</code>
+<br> &nbsp <code>Cart</code> вместо <code>Cartesian</code> и т.д.
+<p><i>Пример программы: </i> <code>
+<br> &nbsp <font color=green>###</font>
+<br> &nbsp <b>var</b> a:=|0,-1,3,6,-4,3|;
+<br> &nbsp a.Cnt.Prln; &nbsp &nbsp &nbsp &nbsp <font color=green>//6</font>
+<br> &nbsp a.Dst.Ord.Prln; &nbsp &nbsp &nbsp <font color=green>//-4 -1 0 3 6</font>
+<br> &nbsp a.Sel(x-> x*x).Prln &nbsp &nbsp <font color=green>//0 1 9 36 16 9</font>
+
+
+
+</code>
+</font></body> </html>

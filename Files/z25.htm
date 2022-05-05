@@ -1,0 +1,67 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<body bgcolor=white text=black> <font size=4>
+<h2> Задача 25 </h2>
+
+<h3> № 1. </h3>
+<p> &nbsp Напишите программу, которая ищет среди целых чисел, принадлежащих числовому отрезку [185 311; 185 330], числа, имеющие ровно четыре различных натуральных делителя. Для каждого найденного числа запишите эти четыре делителя в четыре соседних столбца на экране с новой строки. Делители в строке должны следовать в порядке возрастания.
+
+<h3> Решение </h3>
+<p> Напишем программу для получения ответа.
+
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>###</font> uses School;
+    <br> (185311..185330).Sel(x-> x.Divisors).Wh(p-> p.Cnt=4).Pr </code>
+  </th>
+  <th width=50% nowrap> <code>
+  <font color=blue>for</font> n <font color=blue>in</font> <font color=#66f>range</font>(185311,185330+1):
+  <br> &nbsp a=[d <font color=blue>for</font> d <font color=blue>in</font> <font color=#66f>range</font>(1,n+1) <font color=blue>if</font> n%d==0]
+  <br> &nbsp <font color=blue>if</font> <font color=#66f>len</font>(a)==4: <font color=#66f>print</font>(*a)
+  </code>
+  </th>
+</tr> </table>
+<p><big>Ответ: </big> <b><i>1 2 92657 185314</b></i>
+<br><samp> &nbsp &nbsp &nbsp &nbsp</samp> <b><i>1 47 3943 185321</b></i>
+<br><samp> &nbsp &nbsp &nbsp &nbsp</samp> <b><i>1 241 769 185329</b></i>.
+
+
+<h3> № 2. </h3>
+<p> &nbsp Рассмотрим произвольное натуральное число, представим его всеми возможными способами в виде произведения двух натуральных чисел и найдём для каждого такого произведения разность сомножителей. Например, для числа 16 получим: 16 = 16*1 = 8*2 = 4*4, множество разностей содержит числа 15, 6 и 0. Найдите все натуральные числа, принадлежащие отрезку [1 000 000; 2 000 000], у которых составленное описанным способом множество разностей будет содержать не меньше трёх элементов, не превышающих 100. В ответе перечислите найденные числа в порядке возрастания.
+
+
+<h3> Решение </h3>
+<p> Напишем программу для получения ответа.
+
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>###</font> uses School;
+    <br>Function f(n:int):=n.Divisors.Wh(d-> d<=n**0.5).Sel(d-> n div d-d);
+    <br>(1000000..2000000).Wh(n-> f(n).Cnt(r-> r<=100)>=3).Pr
+ </code>
+  </th>
+  <th width=50% nowrap> <code> 
+    f=<font color=blue>lambda</font> n: [n//d-d <font color=blue>for</font> d <font color=blue>in</font> <font color=#66f>range</font>(1,<font color=#66f>int</font>(n**0.5)+1) <font color=blue>if</font> n%d==0]
+    <br> <font color=blue>for</font> n <font color=blue>in</font> <font color=#66f>range</font>(1000000,2000000):
+    <br> &nbsp <font color=blue>if</font> <font color=#66f>len</font>([r <font color=blue>for</font> r <font color=blue>in</font> f(n) <font color=blue>if</font> r<=100])>=3: <font color=#66f>print</font>(n)
+  </code>
+  </th>
+</tr> </table>
+<p><big>Ответ: </big> <b><i>1113840</b></i>
+<br><samp> &nbsp &nbsp &nbsp &nbsp</samp> <b><i>1179360</b></i>
+<br><samp> &nbsp &nbsp &nbsp &nbsp</samp> <b><i>1208844</b></i>
+<br><samp> &nbsp &nbsp &nbsp &nbsp</samp> <b><i>1499400</b></i>.
+</font></body> </html>

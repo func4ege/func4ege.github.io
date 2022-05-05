@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor=white text=black> <font size=4>
+<h2> Задача 27 </h2>
+
+<h3> № 1. </h3>
+<p> &nbsp Имеется набор данных, состоящий из пар положительных целых чисел. Необходимо выбрать из каждой пары ровно одно число так, чтобы сумма всех выбранных чисел не делилась на 3 и при этом была максимально возможной. Гарантируется, что искомую сумму получить можно. Программа должна напечатать одно число — максимально возможную сумму, соответствующую условиям задачи.
+<p><a href='27-1-A.txt' target=_blank>Задание 27-1-A</a>
+<br><a href='27-1-B.txt' target=_blank>Задание 27-1-B</a>
+
+<h3> Решение </h3>
+<p> Напишем программу для получения ответа.
+
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>###</font> var (s,r):=(0,10000);
+    <br> ReadLines(<font color=blue>'27-1-A.txt'</font>).Skip(1).ForEach(st-> begin
+    <br> &nbsp var (a,b):=st.ToIs.Ord;
+    <br> &nbsp s+=b; remin(r,(b-a).ND(3) ? b-a : r)
+    <br> end);
+    <br> Pr(s.ND(3) ? s : s-r)
+  </code>
+  </th>
+  <th width=50% nowrap> <code>
+  s=0;r=10000
+  <br> <font color=blue>for</font> st <font color=blue>in</font> <font color=#66f>open</font>(<font color=#f6f>'27-1-A.txt'</font>).readlines()[1:]:
+  <br> &nbsp a,b=<font color=#66f>sorted</font>(<font color=#66f>map</font>(<font color=#66f>int</font>, st.split()))
+  <br> &nbsp s+=b; r=<font color=#66f>min</font>(r,b-a <font color=blue>if</font> (b-a)%3 <font color=blue>else</font> r)
+  <br> <font color=#66f>print</font>(s <font color=blue>if</font> s%3 <font color=blue>else</font> s-r)
+  </code>
+  </th>
+</tr> </table>
+<p><big>Ответ: </big> <b><i>127127 399762080</b></i>.
+
+
+<h3> № 2. </h3>
+<p> &nbsp Дана последовательность натуральных чисел. Необходимо найти максимально возможную сумму её непрерывной подпоследовательности, в которой количество нечётных элементов кратно k = 10.
+<p> <a href='27-2-A.txt' target=_blank>Задание 27-2-A</a>
+<br> <a href='27-2-B.txt' target=_blank>Задание 27-2-B</a>
+
+<h3> Решение </h3>
+<p> Напишем программу для получения ответа.
+
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=center>
+  <th colspan=2> Программа для решения задачи <font color=purple><b>а</b></font> <i>(неэффективный алгоритм)</i> </th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>###</font> var m:=0;
+    <br> var a:=ReadAllText(<font color=blue>'27-2-A.txt'</font>).ToIs[1:];
+    <br> (0..a.H).ForEach(i-> begin
+    <br> &nbsp var (s,k):=(0,0);
+    <br> &nbsp (i..a.H).ForEach(j-> begin
+    <br> &nbsp &nbsp s+=a[j];k+=a[j] mod 2;
+    <br> &nbsp &nbsp remax(m,s*int(k.D(10)));
+    <br> &nbsp end) end);
+    <br> Pr(m)
+ </code>
+  </th>
+  <th width=50% nowrap> <code> 
+    m=0;a=[<font color=#66f>int</font>(s) <font color=blue>for</font> s <font color=blue>in</font> <font color=#66f>open</font>(<font color=#f6f>'27-2-A.txt'</font>)][1:]
+    <br> <font color=blue>for</font> i <font color=blue>in</font> <font color=#66f>range</font>(<font color=#66f>len</font>(a)):
+    <br> &nbsp s=k=0
+    <br> &nbsp <font color=blue>for</font> j <font color=blue>in</font> <font color=#66f>range</font>(i,<font color=#66f>len</font>(a)):
+    <br> &nbsp &nbsp s+=a[j];k+=a[j]%2
+    <br> &nbsp &nbsp m=<font color=#66f>max</font>(m,s*(k%10==0))
+    <br> <font color=#66f>print</font>(m)
+  </code>
+  </th>
+</tr>
+<tr align=center>
+  <th colspan=2> Программа для решения задачи <font color=purple><b>b</b></font> <i>(эффективный алгоритм)</i> </th>
+</tr> 
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>###</font> var d:=|0|+|MaxInt|*9;
+    <br> var (k,s,m):=|0|*3;
+    <br> ReadAllText(<font color=blue>'27-2-B.txt'</font>).ToIs[1:].ForEach(x-> begin
+    <br> &nbsp k+=x mod 2; s+=x;
+    <br> &nbsp remin(d[k mod 10],s);
+    <br> &nbsp remax(m,s-d[k mod 10]);
+    <br> end); m.Pr
+ </code>
+  </th>
+  <th width=50% nowrap> <code> 
+    d={0:0};k=s=m=0
+    <br> <font color=blue>for</font> x <font color=blue>in</font> [<font color=#66f>int</font>(s) <font color=blue>for</font> s <font color=blue>in</font> <font color=#66f>open</font>(<font color=#f6f>'27-2-B.txt'</font>)][1:]:
+    <br> &nbsp k+=x%2;s+=x
+    <br> &nbsp <font color=blue>if</font> k%10 <font color=blue>in</font> d: m=<font color=#66f>max</font>(m,s-d[k%10])
+    <br> &nbsp <font color=blue>else</font>: d[k%10]=s
+    <br> <font color=#66f>print</font>(m)
+  </code>
+  </th>
+</tr> </table>
+<p><big>Ответ: </big> <b><i>4777208 979268310</b></i>.
+</font></body> </html>

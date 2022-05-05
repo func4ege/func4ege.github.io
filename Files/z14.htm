@@ -1,0 +1,66 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<body bgcolor=white text=black> <font size=4>
+<h2> Задача 14 </h2>
+
+<h3> № 1. </h3>
+<p> &nbsp Значение выражения 81<sup>15</sup> + 3<sup>22</sup> − 27 записали в системе счисления с основанием 9. Сколько цифр «8» содержится в этой записи?
+
+<h3> Решение </h3>
+<p> Напишем программу для получения ответа.
+
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>###</font> uses School;
+    <br> var n:=81bi**15+3bi**22-27;
+    <br> ToBase(n,9).Cnt(<font color=blue>'8'</font>).Pr </code>
+  </th>
+  <th width=50% nowrap> <code>
+  n=81**15+3**22-27;k=0
+  <br><font color=blue>while</font> n: k+=n%9==8;n//=9
+  <br><font color=#66f>print</font>(k)
+  </code>
+  </th>
+</tr> </table>
+<p><big>Ответ: </big> <b><i>9</b></i>.
+
+
+<h3> № 2. </h3>
+<p> &nbsp Значение выражения 343<sup>5</sup> + 7<sup>3</sup> − 1 − X записали в системе счисления с основанием 7, при этом в записи оказалось 12 цифр 6. При каком минимальном целом положительном X это возможно?
+
+
+<h3> Решение </h3>
+<p> Напишем программу для получения ответа.
+
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>###</font> uses School;
+    <br>Function f(x:int):=343bi**5+7bi**3-1-x;
+    <br>(1..Maxint).First(x-> ToBase(f(x),7).Cnt(<font color=blue>'6'</font>)=12).Pr
+ </code>
+  </th>
+  <th width=50% nowrap> <code> 
+    <font color=blue>for</font> x <font color=blue>in</font> <font color=#66f>range</font>(1,10**9):
+    <br> &nbsp n=343**5+7**3-1-x;k=0
+    <br> &nbsp <font color=blue>while</font> n: k+=n%7==6;n//=7
+    <br> &nbsp <font color=blue>if</font> k==12: <font color=#66f>print</font>(x);<font color=blue>break</font>
+
+  
+  </code>
+  </th>
+</tr> </table>
+<p><big>Ответ: </big> <b><i>400</b></i>.
+</font></body> </html>

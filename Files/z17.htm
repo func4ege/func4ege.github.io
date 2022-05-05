@@ -1,0 +1,73 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<body bgcolor=white text=black> <font size=4>
+<h2> Задача 17 </h2>
+
+<h3> № 1. </h3>
+<p> &nbsp Файл содержит последовательность неотрицательных целых чисел, не превышающих 10 000. Назовём парой два идущих подряд элемента последовательности. Определите количество пар чисел, произведение которых кратно 15, а их сумма делится на 7. В ответе запишите два числа: сначала количество найденных пар, а затем — максимальную сумму элементов таких пар.
+<p><a href='17-1.txt' target=_blank>Задание 17-1</a>
+
+<h3> Решение </h3>
+<p> Напишем программу для получения ответа.
+
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>###</font>
+    <br> var a:=ReadAllText(<font color=blue>'17-1.txt'</font>).ToIs.Pairwise
+    <br> &nbsp .Wh(\(a,b)-> (a*b).D(15) and (a+b).D(7));
+    <br> Pr(a.Cnt,a.Max(\(a,b)-> a+b)) </code>
+  </th>
+  <th width=50% nowrap> <code>
+  a=[<font color=#66f>int</font>(s) <font color=blue>for</font> s <font color=blue>in</font> <font color=#66f>open</font>(<font color=#f6f>'17-1.txt'</font>)];k=m=0
+  <br><font color=blue>for</font> i <font color=blue>in</font> <font color=#66f>range</font>(1,<font color=#66f>len</font>(a)):
+  <br> &nbsp <font color=blue>if</font> (a[i-1]*a[i])%15==0 <font color=blue>and</font> (a[i-1]+a[i])%7==0: 
+  <br> &nbsp &nbsp k+=1;m=<font color=#66f>max</font>(m,a[i-1]+a[i])
+  <br> <font color=#66f>print</font>(k,m)
+  </code>
+  </th>
+</tr> </table>
+<p><big>Ответ: </big> <b><i>170 18662</b></i>.
+
+
+<h3> № 2. </h3>
+<p> &nbsp В файле содержится последовательность из 10 000 натуральных чисел. Каждое число не превышает 10 000. Определите и запишите в ответе сначала количество пар элементов последовательности, у которых различные остатки от деления на d = 160 и хотя бы одно из чисел делится на p = 7, затем максимальную из сумм элементов таких пар. В данной задаче под парой подразумевается два различных элемента последовательности. Порядок элементов в паре не важен.
+<p> <a href='17-2.txt' target=_blank>Задание 17-2</a>
+
+
+<h3> Решение </h3>
+<p> Напишем программу для получения ответа.
+
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>###</font> 
+    <br>var p:=ReadAllText(<font color=blue>'17-2.txt'</font>).ToIs.Cmb(2)
+    <br> &nbsp .Wh(\(a,b)-> (a mod 160<>b mod 160) and (a.D(7) or b.D(7)));
+    <br> Pr(p.Cnt,p.Max(\(a,b)-> a+b))
+ </code>
+  </th>
+  <th width=50% nowrap> <code> 
+    <font color=blue>from</font> itertools <font color=blue>import</font> *
+    <br> p=[<font color=#66f>int</font>(s) <font color=blue>for</font> s <font color=blue>in</font> <font color=#66f>open</font>(<font color=#f6f>'17-2.txt'</font>)];k=m=0
+    <br> &nbsp <font color=blue>if</font> a%160!=b%160 <font color=blue>and</font> (a%7==0 <font color=blue>or</font> b%7==0): 
+    <br> &nbsp &nbsp k+=1;m=<font color=#66f>max</font>(m,a+b)
+    <br> <font color=#66f>print</font>(k,m)
+
+  
+  </code>
+  </th>
+</tr> </table>
+<p><big>Ответ: </big> <b><i>12749665 19989</b></i>.
+</font></body> </html>

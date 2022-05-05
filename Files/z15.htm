@@ -1,0 +1,75 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<body bgcolor=white text=black> <font size=4>
+<h2> Задача 15 </h2>
+
+<h3> № 1. </h3>
+<p> &nbsp Обозначим через m & n поразрядную конъюнкцию неотрицательных целых чисел m и n. Для какого наименьшего неотрицательного целого числа А формула
+<p align=center>(x & 105 = 0) → ((x & 58 ≠ 0) → (x & А ≠ 0))
+
+<p>тождественно истинна (т. е. принимает значение 1 при любом неотрицательном целом значении переменной x)?
+
+<h3> Решение </h3>
+<p> Напишем программу для получения ответа.
+
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code><font size=3>
+    <font color=green>###</font>
+    <br> (0..500)
+    <br> &nbsp .First(a-> (0..500).All(x-> (x and 105=0)<=((x and 58<>0)<=(x and a<>0)))).Pr
+    </font> </code>
+  </th>
+  <th width=50% nowrap> <code><font size=3>
+  <font color=#66f>print</font>(<font color=#66f>min</font>(a <font color=blue>for</font> a <font color=blue>in</font> <font color=#66f>range</font>(500) <font color=blue>if</font> <font color=#66f>all</font>((x&105==0)<=((x&58!=0)<=(x&a!=0)) <font color=blue>for</font> x <font color=blue>in</font> <font color=#66f>range</font>(500))))
+  </font></code>
+  </th>
+</tr> </table>
+<p><big>Ответ: </big> <b><i>18</b></i>.
+
+
+<h3> № 2. </h3>
+<p> &nbsp На числовой прямой даны два отрезка: D = [17; 58] и C = [29; 80]. Укажите наименьшую возможную длину такого отрезка A, для которого логическое выражение
+
+<p align=center>(x ∈ D) → ((¬(x ∈ C)∧ ¬(x ∈ A)) → ¬(x ∈ D))
+
+<p>истинно (т. е. принимает значение 1) при любом значении переменной х.
+
+
+<h3> Решение </h3>
+<p> Напишем программу для получения ответа.
+
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code><font size=3>
+    <font color=green>###</font> 
+    <br>var d:=(17..58);var c:=(29..80);
+    <br>(1..100).Cmb(2).Sel(\(x1,x2)->(x1..x2))
+    <br> &nbsp .Wh(a-> (1..100).All(x-> (x in d)<=(((x not in c)and(x not in a))<=(x not in d))))
+    <br> &nbsp .Min(a-> a.Cnt).Pr </font>
+ </code>
+  </th>
+  <th width=50% nowrap> <code> <font size=3>
+    d=<font color=#66f>range</font>(17,58);c=<font color=#66f>range</font>(29,80);m=200
+    <br> <font color=blue>for</font> x2 <font color=blue>in</font> <font color=#66f>range</font>(100):
+    <br> &nbsp <font color=blue>for</font> x1 <font color=blue>in</font> <font color=#66f>range</font>(x2):
+    <br> &nbsp &nbsp a=<font color=#66f>range</font>(x1,x2)
+    <br> &nbsp &nbsp f=<font color=#66f>all</font>((x <font color=blue>in</font> d)<=(((x <font color=blue>not in</font> c)<font color=blue>and</font>(x <font color=blue>not in</font> a))<=(x <font color=blue>not in</font> d)) <font color=blue>for</font> x <font color=blue>in</font> <font color=#66f>range</font>(100))
+    <br> &nbsp &nbsp <font color=blue>if</font> f: m=<font color=#66f>min</font>(m,x2-x1)
+    <br> <font color=#66f>print</font>(m) 
+  </font> </code>
+  </th>
+</tr> </table>
+<p><big>Ответ: </big> <b><i>12</b></i>.
+</font></body> </html>

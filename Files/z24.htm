@@ -1,0 +1,76 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<body bgcolor=white text=black> <font size=4>
+<h2> Задача 24 </h2>
+
+<h3> № 1. </h3>
+<p> &nbsp Текстовый файл состоит не более чем из 10<sup>6</sup> символов L, D и R. Определите длину самой длинной последовательности, состоящей из символов L. Хотя бы один символ L находится в последовательности.
+<p><a href='24-1.txt' target=_blank>Задание 24-1</a>
+
+<h3> Решение </h3>
+<p> Напишем программу для получения ответа.
+
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>###</font>
+    <br> var (k,m):=(0,0);
+    <br> ReadAllText(<font color=blue>'24-1.txt'</font>).ForEach(c->  
+    <br> &nbsp if c=<font color=blue>'L'</font> then k+=1
+    <br> &nbsp else begin
+    <br> &nbsp &nbsp remax(m,k);k:=0;
+    <br> &nbsp end);
+    <br> Pr(m) </code>
+  </th>
+  <th width=50% nowrap> <code>
+  m=k=0
+  <br><font color=blue>for</font> c <font color=blue>in</font> <font color=#66f>open</font>(<font color=#f6f>'24-1.txt'</font>).read():
+  <br> &nbsp <font color=blue>if</font> c==<font color=#f6f>'L'</font>: k+=1
+  <br> &nbsp <font color=blue>else</font>: m=<font color=#66f>max</font>(m,k);k=0
+  <br> <font color=#66f>print</font>(m)
+  </code>
+  </th>
+</tr> </table>
+<p><big>Ответ: </big> <b><i>7</b></i>.
+
+
+<h3> № 2. </h3>
+<p> &nbsp Текстовый файл содержит строки различной длины. Общий объём файла не превышает 1 Мбайт. Строки содержат только заглавные буквы латинского алфавита (ABC…Z).
+<br> &nbsp В строках, содержащих менее 25 букв A, нужно определить и вывести максимальное расстояние между одинаковыми буквами в одной строке.
+<p> <a href='24-2.txt' target=_blank>Задание 24-2</a>
+
+
+<h3> Решение </h3>
+<p> Напишем программу для получения ответа.
+
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>###</font> 
+    <br> ReadLines(<font color=blue>'24-2.txt'</font>).Wh(s-> s.Cnt(<font color=blue>'A'</font>)<25)
+    <br> &nbsp .Max(s-> s.Max(c-> LastPos(c,s)-Pos(c,s))).pr
+ </code>
+  </th>
+  <th width=50% nowrap> <code> 
+    m=[]
+    <br> <font color=blue>for</font> s <font color=blue>in</font> [s <font color=blue>for</font> s <font color=blue>in</font> <font color=#66f>open</font>(<font color=#f6f>'24-2.txt'</font>).readlines() <font color=blue>if</font> s.count(<font color=#f6f>'A'</font>)<25]:
+    <br> &nbsp m+=[s.rfind(c)-s.find(c) <font color=blue>for</font> c <font color=blue>in</font> s]
+    <br> <font color=#66f>print</font>(<font color=#66f>max</font>(m))
+
+  
+  </code>
+  </th>
+</tr> </table>
+<p><big>Ответ: </big> <b><i>1004</b></i>.
+</font></body> </html>

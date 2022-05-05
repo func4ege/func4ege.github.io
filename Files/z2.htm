@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html>
+<body bgcolor=white text=black> <font size=4>
+<h2> Задача 2 </h2>
+
+<h3> № 1. </h3>
+<p> &nbsp Логическая функция F задаётся выражением (x ≡ y ) ∨ ((y ∨ z) → x). Дан частично заполненный фрагмент, содержащий <b>неповторяющиеся</b> строки таблицы истинности функции F. Определите, какому столбцу таблицы истинности соответствует каждая из переменных x, y, z.
+
+<table width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=25%> <b>Переменная 1</b></th>
+  <th width=25%> <b>Переменная 2</b></th>
+  <th width=25%> <b>Переменная 3</b></th>
+  <th width=25%> <b>Функция</b></th>
+</tr>
+
+<tr align=center>
+  <th width=25%> ???</th>
+  <th width=25%> ???</th>
+  <th width=25%> ???</th>
+  <th width=25%> <i>F</i></th>
+</tr>
+
+<tr align=center>
+  <th width=25%> &nbsp</th>
+  <th width=25%> 1</th>
+  <th width=25%> 1</th>
+  <th width=25%> 0</th>
+</tr>
+
+<tr align=center>
+  <th width=25%> &nbsp</th>
+  <th width=25%> &nbsp</th>
+  <th width=25%> 1</th>
+  <th width=25%> 0</th>
+</tr> </table>
+
+<h3> Решение </h3>
+<p> &nbsp Составим таблицу истинности функции F и выпишем наборы переменных, при которых функция принимает значение 0.
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font> uses School;
+    <br><b>var</b> a:=TrueTable((x,y,z)-> (x=y)or((y or z)<=x)); 
+    <br>TrueTablePrint(a,0,<font color=blue>'xyz'</font>) </code>
+  </th>
+  <th width=50% nowrap> <code>
+    <font color=blue>from</font> itertools <font color=blue>import</font> *
+    <br><font color=#66F>print</font>(<font color=#f6f>'x y z F'</font>)
+    <br><font color=blue>for</font> x,y,z <font color=blue>in</font> product([0,1],repeat=3): 
+    <br>&nbsp &nbsp F = (x==y)<font colot=blue>or</font>((y <font color=blue>or</font> z)<=x)
+    <br>&nbsp &nbsp <font color=blue>if</font> F==0: <font color=#66f>print</font>(x,y,z,<font color=#66f>int</font>(F)) </code>
+  </th>
+</tr> </table>
+<br><p> &nbsp Получим следующие наборы: (0, 1, 0), (0, 1, 1).
+<p> &nbsp В обоих наборах переменная x принимает значение 0, значит, ей может соответствовать только первый столбец таблицы. Переменная z принимает значение 1 только в одном наборе, значит, ей может соответствовать только второй столбец таблицы, тогда третий столбец соответствует переменной у.
+<p> <big> Ответ: </big> <i><b> xzy</b></i>.
+
+
+
+<h3> № 2. </h3>
+<p> &nbsp Логическая функция F задаётся выражением ((y → z) ∨ (¬x ∧ w)) ≡ (w ≡ z). Дан частично заполненный фрагмент, содержащий <b>неповторяющиеся</b> строки таблицы истинности функции F. Определите, какому столбцу таблицы истинности соответствует каждая из переменных w, x, y, z.
+
+<table width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=20%> <b>Переменная 1</b></th>
+  <th width=20%> <b>Переменная 2</b></th>
+  <th width=20%> <b>Переменная 3</b></th>
+  <th width=20%> <b>Переменная 4</b></th>
+  <th width=20%> <b>Функция</b></th>
+</tr>
+
+<tr align=center>
+  <th width=20%> ???</th>
+  <th width=20%> ???</th>
+  <th width=20%> ???</th>
+  <th width=20%> ???</th>
+  <th width=20%> <i>F</i></th>
+</tr>
+
+<tr align=center>
+  <th width=20%> &nbsp</th>
+  <th width=20%> 1</th>
+  <th width=20%> 0</th>
+  <th width=20%> 0</th>
+  <th width=20%> 1</th>
+</tr>
+
+<tr align=center>
+  <th width=20%> 0</th>
+  <th width=20%> 0</th>
+  <th width=20%> 0</th>
+  <th width=20%> 1</th>
+  <th width=20%> 1</th>
+</tr>
+
+<tr align=center>
+  <th width=20%> 0</th>
+  <th width=20%> 1</th>
+  <th width=20%> &nbsp</th>
+  <th width=20%> &nbsp</th>
+  <th width=20%> 1</th>
+</tr> </table>
+
+<h3> Решение </h3>
+<p> &nbsp Составим таблицу истинности функции F и выпишем наборы переменных, при которых функция принимает значение 1.
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>##</font> uses School;
+    <br><b>var</b> a:=TrueTable((w,x,y,z)-> ((y<=z)or(not x and w))=(w=z)); 
+    <br>TrueTablePrint(a,1,<font color=blue>'wxyz'</font>) </code>
+  </th>
+  <th width=50% nowrap> <code>
+    <font color=blue>from</font> itertools <font color=blue>import</font> *
+    <br><font color=#66F>print</font>(<font color=#f6f>'w x y z F'</font>)
+    <br><font color=blue>for</font> w,x,y,z <font color=blue>in</font> product([0,1],repeat=4): 
+    <br>&nbsp &nbsp F = ((y<=z)<font color=blue>or</font>(<font color=blue>not</font>(x) <font color = blue>and</font> w))==(w==z)
+    <br>&nbsp &nbsp <font color=blue>if</font> F==1: <font color=#66f>print</font>(w,x,y,z,<font color=#66f>int</font>(F)) </code>
+  </th>
+</tr> </table>
+<br><p> &nbsp Получим следующие наборы: (0, 0, 0, 0), (0, 1, 0, 0), (1, 0, 0, 1), (1, 0, 1, 1), (1, 1, 0, 1), (1, 1, 1, 0), (1, 1, 1, 1).
+<p> &nbsp Рассмотрим вторую строку заданной таблицы. Она может соответствовать только набору переменных: x = 1, y = 0, z = 0, w = 0. Тогда четвертый столбец таблицы - это переменная x.
+<br> &nbsp Рассмотрим первую строку заданной таблицы. Заметим, что в первой колонке должна стоять 1, так как наборов переменных, где были бы три нуля, больше нет. Тогда вторая строка может соответствовать только набору x = 0, y = 0, z = 1, w = 1. Следовательно, первая и вторая колонки соответствуют переменным z или w, а третья колонка - это переменная y.
+<br> &nbsp Рассмотрим третью строку таблицы. В ней одна из переменных z или w равна 1, а другая 0. Следовательно, третьей строке может соответствовать только набор переменных x = 1, y = 1, z = 0, w = 1. Тогда первый столбец таблицы - это переменная z, а второй столбец - это переменная w.
+<p> <big> Ответ: </big> <i><b> zwyx</b></i>.
+</font></body> </html>

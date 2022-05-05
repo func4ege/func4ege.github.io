@@ -1,0 +1,64 @@
+
+
+<!DOCTYPE html>
+<html>
+<body bgcolor=white text=black> <font size=4>
+<h2> Задача 8 </h2>
+
+<h3> № 1. </h3>
+<p> &nbsp Сколько слов длины 4, начинающихся с согласной буквы и заканчивающихся гласной буквой, можно составить из букв М, Е, Т, Р, О? Каждая буква может входить в слово несколько раз.
+
+<h3> Решение </h3>
+<p> Напишем программу для получения ответа.
+
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code><font size=3>
+    <font color=green>###</font>
+    <br> <font color=blue>'МЕТРО'</font>.Cart(4).Cnt(s-> (s[1] in <font color=blue>'МТР'</font>) and (s[^1] in <font color=blue>'ЕО'</font>)).Pr </font></code>
+  </th>
+  <th width=50% nowrap> <code><font size=3>
+  <font color=blue>from</font> itertools <font color=blue>import</font> *
+  <br><font color=#66f>print</font>(<font color=#66f>len</font>([s <font color=blue>for</font> s <font color=blue>in</font> product(<font color=#f6f>'МЕТРО'</font>,repeat=4) <font color=blue>if</font> s[0] in <font color=#f6f>'МТР'</font> <font color=blue>and</font> s[-1] in <font color=#f6f>'ЕО'</font>]))
+  </font></code>
+  </th>
+</tr> </table>
+<p><big>Ответ: </big> <b><i>150</b></i>.
+
+
+<h3> № 2. </h3>
+<p> &nbsp Ольга составляет 5-буквенные коды из букв О, Л, Ь, Г, А. Каждую букву нужно использовать ровно 1 раз, при этом Ь нельзя ставить первым и нельзя ставить после гласной. Сколько различных кодов может составить Ольга?
+
+
+<h3> Решение </h3>
+<p> Напишем программу для получения ответа.
+
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>###</font> 
+    <br><font color=blue>'ОЛЬГА'</font>.Prm.Sel(x-> x.ToS(<font color=blue>''</font>))
+    <br>&nbsp .Cnt(s-> (s[1]<><font color=blue>'Ь'</font>) and |<font color=blue>'АЬ'</font>,<font color=blue>'ОЬ'</font>|.All(c-> c not in s)).Pr
+ </code>
+  </th>
+  <th width=50% nowrap> <code> 
+    <font color=blue>from</font> itertools <font color=blue>import</font> *;k=0
+  <br><font color=blue>for</font> x <font color=blue>in</font> permutations(<font color=#f6f>'ОЛЬГА'</font>):
+  <br> &nbsp s=<font color=#f6f>''</font>.join(x)
+  <br> &nbsp k+=s[0]!=<font color=#f6f>'Ь'</font> <font color=blue>and</font> <font color=#66f>all</font>(c <font color=blue>not in</font> s <font color=blue>for</font> c <font color=blue>in</font> [<font color=#f6f>'АЬ'</font>,<font color=#f6f>'ОЬ'</font>])
+  <br> <font color=#66f>print</font>(k)
+
+  
+  </code>
+  </th>
+</tr> </table>
+<p><big>Ответ: </big> <b><i>48</b></i>.
+</font></body> </html>

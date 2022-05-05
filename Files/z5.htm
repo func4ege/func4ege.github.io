@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+<body bgcolor=white text=black> <font size=4>
+<h2> Задача 5 </h2>
+
+<h3> № 1. </h3>
+<p> &nbsp Автомат обрабатывает натуральное число N по следующему алгоритму:
+<br> 1. Строится двоичная запись числа N.
+<br> 2. Запись «переворачивается», то есть читается справа налево. Если при этом появляются ведущие нули, они отбрасываются.
+<br> 3. Полученное число переводится в десятичную запись и выводится на экран.
+<p> &nbsp Какое наибольшее число, не превышающее 100, после обработки автоматом даёт результат 13?
+
+<h3> Решение </h3>
+<p> Напишем программу для получения ответа.
+
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>###</font> uses School;
+    <br> (1..100).Last(n-> Dec(bin(n)[::-1],2)=13).Pr </code>
+  </th>
+  <th width=50% nowrap> <code>
+  <font color=#66f>print</font>(<font color=#66f>max</font>(n <font color=blue>for</font> n <font color=blue>in</font> <font color=#66f>range</font>(101) <font color=blue>if</font> <font color=#66f>int</font>(<font color=#66f>bin</font>(n)[2:][::-1],2)==13))    
+  </code>
+  </th>
+</tr> </table>
+<p><big>Ответ: </big> <b><i>88</b></i>.
+
+
+<h3> № 2. </h3>
+<p> &nbsp Автомат обрабатывает натуральное число N по следующему алгоритму:
+<br> 1. Строится троичная запись числа N.
+<br> 2. В конец записи (справа) дописывается остаток от деления числа N на 3.
+<br> 3. Результат переводится из троичной системы в десятичную и выводится на экран.
+<p> Какое наименьшее четырёхзначное число может появиться на экране в результате работы автомата?
+<h3> Решение </h3>
+<p> Напишем программу для получения ответа.
+
+<br><table  width=90% border=2 cellspacing=2 cellpadding=3>
+<tr align=center>
+  <th width=50%> PascalABC</th>
+  <th width=50%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>###</font> uses School;
+    <br> (1..10000).Sel(n-> Dec(ToBase(n,3)+(n mod 3).ToS,3))<br>&nbsp .Wh(r->r.ToS.Cnt=4).Min.Print
+ </code>
+  </th>
+  <th width=50% nowrap> <code> a=[]
+  <br><font color=blue>for</font> n <font color=blue>in</font> <font color=#66f>range</font>(1,10000):
+  <br> &nbsp s=<font color=#f6f>''</font>;d=n%3
+  <br> &nbsp <font color=blue>while</font> n: s=<font color=#66f>str</font>(n%3)+s;n//=3
+  <br> &nbsp r=<font color=#66f>int</font>(s+<font color=#66f>str</font>(d),3);a+=[r <font color=blue>if</font> <font color=#66f>len</font>(<font color=#66f>str</font>(r))==4 <font color=blue>else</font> 10000]
+  <br> <font color=#66f>print</font>(<font color=#66f>min</font>(a))
+
+  
+  </code>
+  </th>
+</tr> </table>
+<p><big>Ответ: </big> <b><i>1003</b></i>.
+</font></body> </html>
