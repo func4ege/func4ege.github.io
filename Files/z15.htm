@@ -17,19 +17,22 @@
 
 <br><table  width=90% border=2 cellspacing=2 cellpadding=3>
 <tr align=center>
-  <th width=50%> PascalABC</th>
-  <th width=50%> Python</th>
+  <th width=100%> PascalABC</th>
 </tr>
 <tr align=left>
-  <th width=50% nowrap> <code><font size=3>
+  <th width=100% nowrap> <code>
     <font color=green>###</font>
-    <br> (0..500)
-    <br> &nbsp .First(a-> (0..500).All(x-> (x and 105=0)<=((x and 58<>0)<=(x and a<>0)))).Pr
-    </font> </code>
+    <br> (0..500).First(a-> (0..500).All(x-> (x and 105=0)<=((x and 58<>0)<=(x and a<>0)))).Pr
+     </code>
   </th>
-  <th width=50% nowrap> <code><font size=3>
+</tr>
+<tr align=center>
+  <th width=100%> Python</th>
+</tr>
+<tr align=left>
+  <th width=100% nowrap> <code>
   <font color=#66f>print</font>(<font color=#66f>min</font>(a <font color=blue>for</font> a <font color=blue>in</font> <font color=#66f>range</font>(500) <font color=blue>if</font> <font color=#66f>all</font>((x&105==0)<=((x&58!=0)<=(x&a!=0)) <font color=blue>for</font> x <font color=blue>in</font> <font color=#66f>range</font>(500))))
-  </font></code>
+  </code>
   </th>
 </tr> </table>
 <p><big>Ответ: </big> <b><i>18</b></i>.
@@ -48,19 +51,22 @@
 
 <br><table  width=90% border=2 cellspacing=2 cellpadding=3>
 <tr align=center>
-  <th width=50%> PascalABC</th>
-  <th width=50%> Python</th>
+  <th width=100%> PascalABC</th>
 </tr>
 <tr align=left>
-  <th width=50% nowrap> <code><font size=3>
+  <th width=100% nowrap> <code>
     <font color=green>###</font> 
     <br>var d:=(17..58);var c:=(29..80);
     <br>(1..100).Cmb(2).Sel(\(x1,x2)->(x1..x2))
-    <br> &nbsp .Wh(a-> (1..100).All(x-> (x in d)<=(((x not in c)and(x not in a))<=(x not in d))))
-    <br> &nbsp .Min(a-> a.Cnt).Pr </font>
+    <br> &nbsp .Wh(a-> (1..100).All(x-> (x in d)<=(((x not in c)and(x not in a))<=(x not in d)))).Min(a-> a.Cnt).Pr 
  </code>
   </th>
-  <th width=50% nowrap> <code> <font size=3>
+</tr>
+<tr align=center>
+  <th width=100%> Python</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code> 
     d=<font color=#66f>range</font>(17,58);c=<font color=#66f>range</font>(29,80);m=200
     <br> <font color=blue>for</font> x2 <font color=blue>in</font> <font color=#66f>range</font>(100):
     <br> &nbsp <font color=blue>for</font> x1 <font color=blue>in</font> <font color=#66f>range</font>(x2):
@@ -68,7 +74,7 @@
     <br> &nbsp &nbsp f=<font color=#66f>all</font>((x <font color=blue>in</font> d)<=(((x <font color=blue>not in</font> c)<font color=blue>and</font>(x <font color=blue>not in</font> a))<=(x <font color=blue>not in</font> d)) <font color=blue>for</font> x <font color=blue>in</font> <font color=#66f>range</font>(100))
     <br> &nbsp &nbsp <font color=blue>if</font> f: m=<font color=#66f>min</font>(m,x2-x1)
     <br> <font color=#66f>print</font>(m) 
-  </font> </code>
+  </code>
   </th>
 </tr> </table>
 <p><big>Ответ: </big> <b><i>12</b></i>.
