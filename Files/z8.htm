@@ -14,17 +14,21 @@
 <br><table  width=90% border=2 cellspacing=2 cellpadding=3>
 <tr align=center>
   <th width=50%> PascalABC</th>
+</tr>
+<tr align=left>
+  <th width=50% nowrap> <code>
+    <font color=green>###</font>
+    <br> <font color=blue>'МЕТРО'</font>.Cart(4).Cnt(s-> (s[1] in <font color=blue>'МТР'</font>) and (s[^1] in <font color=blue>'ЕО'</font>)).Pr </code>
+  </th>
+</tr>
+<tr align=center>
   <th width=50%> Python</th>
 </tr>
 <tr align=left>
-  <th width=50% nowrap> <code><font size=3>
-    <font color=green>###</font>
-    <br> <font color=blue>'МЕТРО'</font>.Cart(4).Cnt(s-> (s[1] in <font color=blue>'МТР'</font>) and (s[^1] in <font color=blue>'ЕО'</font>)).Pr </font></code>
-  </th>
-  <th width=50% nowrap> <code><font size=3>
+  <th width=50% nowrap> <code>
   <font color=blue>from</font> itertools <font color=blue>import</font> *
   <br><font color=#66f>print</font>(<font color=#66f>len</font>([s <font color=blue>for</font> s <font color=blue>in</font> product(<font color=#f6f>'МЕТРО'</font>,repeat=4) <font color=blue>if</font> s[0] in <font color=#f6f>'МТР'</font> <font color=blue>and</font> s[-1] in <font color=#f6f>'ЕО'</font>]))
-  </font></code>
+  </code>
   </th>
 </tr> </table>
 <p><big>Ответ: </big> <b><i>150</b></i>.
